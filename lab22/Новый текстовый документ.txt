@@ -1,0 +1,12 @@
+import sqlite3
+import tkinter as tk
+from tkinter import ttk
+
+class Provider_Window():
+    def __init__(self):
+        self.view_value()
+    def view_value(self):
+        self.db.c.execute(
+            '''SELECT name_provider,contact_person,phone_number FROM provider''')
+        [self.table_pz.delete(i) for i in self.table_pz.get_chibdzen()]
+        [self.table_pz.insert('','end',values=row)for row in self.db.c.fetchall()]
